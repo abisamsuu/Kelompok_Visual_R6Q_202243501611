@@ -3,8 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<field name="nama" class="java.lang.String"/>
-	<field name="umur" class="java.lang.String"/>
+	<field name="nama_lengkap" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -19,29 +18,10 @@
 	</columnHeader>
 	<detail>
 		<band height="25" splitType="Stretch">
-			<textField isStretchWithOverflow="true">
-				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="28" y="0" width="100" height="25"/>
-				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{nama}]]></textFieldExpression>
-			</textField>
 			<textField>
-				<reportElement x="128" y="0" width="100" height="25"/>
-				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{umur}]]></textFieldExpression>
+				<reportElement x="185" y="5" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nama_lengkap}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

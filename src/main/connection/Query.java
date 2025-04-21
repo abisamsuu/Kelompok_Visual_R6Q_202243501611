@@ -279,4 +279,27 @@ public class Query {
             return null;
         }
     }
+    
+    public boolean UpdateStatusCheckIn(String kode){
+        try{
+            String sql = "SELECT nik_passport FROM book WHERE kode_reservasi = ? AND payment IS NOT NULL";
+            PreparedStatement  state1 = this.conn.prepareStatement(sql);
+            state1.setString(1, kode);
+            ResultSet hasil2 = state1.executeQuery();
+            if(hasil2.next()){
+                String sql2 = "UPDATE tamu SET status = 'IN' WHERE no_identitas = ?";
+                PreparedStatement state = this.conn.prepareStatement(sql2);
+                state.setString(1, hasil2.getString("nik_passport"));
+                int hasil = state.executeUpdate();
+                return hasil > 0;
+            }else{
+                return false;
+            }
+            
+            
+        }catch(Exception err){
+            System.out.println(err);
+            return false;
+        }
+    }
 }

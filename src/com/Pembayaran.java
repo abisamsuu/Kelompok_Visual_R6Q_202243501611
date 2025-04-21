@@ -13,6 +13,8 @@ package com;
 
 import main.connection.Query;
 import main.connection.Connect;
+import main.reports.BuktiReservasiInvoice;
+
 import java.sql.*;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -331,6 +333,8 @@ private Connection conn = new Connect().connect();
                 hasil = new Query().InsertDataPembayaran(kode,getResult.getId(),payment);
                 if(hasil){
                     JOptionPane.showMessageDialog(null, "Pembayaran Telah Berhasil Dilakukan");
+                    this.dispose();
+                    new BuktiReservasiInvoice().Reports();
                 }
             }
         }else{

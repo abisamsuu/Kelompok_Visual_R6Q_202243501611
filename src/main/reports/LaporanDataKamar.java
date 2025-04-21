@@ -78,8 +78,7 @@ public class LaporanDataKamar {
         try {
             String nem = "src/main/reports/LaporanDataKamar.jrxml";  // Correct the path to match your project
             Connection conn = new Connect().connect();  // Ensure your Connect class works correctly
-            String sql = "SELECT room.*, room.kapasitas, room.jumlah_kamar, room.type, room.harga, (room.jumlah_kamar - COUNT(CASE WHEN book.payment IS NOT NULL THEN book.id END)) AS room_tersisa FROM room LEFT JOIN book ON book.room = room.id GROUP BY room.id, room.kapasitas, room.jumlah_kamar, room.type, room.harga;";
-            String sql2 = "SELECT book.kode_reservasi, book.room, book.total_malam, book.tanggal_masuk, book.tanggal_keluar, book.payment, room.type, room.kapasitas, room.harga, room.nomor_ruangan, tamu.nama, tamu.no_identitas, tamu.alamat, tamu.telpon, tamu.kelamin FROM book LEFT JOIN room ON room.id = book.room LEFT JOIN tamu ON tamu.no_identitas = book.nik_passport WHERE book.kode_reservasi = 'RSV-HTLT9H4KF' ";
+            String sql = "SELECT room.*, room.kapasitas, room.jumlah_kamar, room.type, room.harga, (room.jumlah_kamar - COUNT(CASE WHEN book.payment IS NOT NULL THEN book.id END)) AS room_tersisa FROM room LEFT JOIN book ON book.room = room.id GROUP BY room.id, room.kapasitas, room.jumlah_kamar, room.type, room.harga;";            
             Statement state = conn.createStatement();
             ResultSet result = state.executeQuery(sql);
             
