@@ -110,6 +110,24 @@ public class Query {
         }
     }
     
+    public boolean UpdateDataTamu(int no_identitas,boolean kelamin,String nama,int telpon, String alamat,int ids){
+        try{
+            String sql = "UPDATE tamu SET nama=?,no_identitas=?,kelamin=?,telpon=?,alamat=? WHERE id=?";
+            PreparedStatement state = conn.prepareStatement(sql);
+            state.setString(1, nama);
+            state.setInt(2, no_identitas);            
+            state.setBoolean(3, kelamin);           
+            state.setInt(4,telpon);
+            state.setString(5, alamat);
+            state.setInt(6, ids);
+            state.executeUpdate();            
+            return true;
+        }catch(Exception err){
+            System.out.println(err);
+            return false;
+        }
+    }
+    
     public boolean CheckTamuOnReservasi(int nik_pas){
         try{
             String sql = "SELECT * FROM tamu WHERE no_identitas = ? AND status IS NULL";
