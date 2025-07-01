@@ -152,6 +152,11 @@ public class DataTamu extends javax.swing.JFrame {
 
         jButton1.setText("Delete");
         jButton1.setVisible(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Clear");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -379,6 +384,29 @@ public class DataTamu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Unvalid No Identitas");
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //Delete
+        String kode = noIdentitas.getText();
+        Query main = new Query();
+        boolean result = main.DeleteTamu(kode);
+        if(result){
+            JOptionPane.showMessageDialog(null,"Berhasil Di Hapus");
+        }else{
+            JOptionPane.showMessageDialog(null,"Gagal Di Hapus");
+        }
+        DataTable();
+        noIdentitas.setText("");
+                telpon.setText("");
+                namaTamu.setText("");
+                alamat.setText("");
+                gl.setSelected(false);
+                gp.setSelected(false);
+                this.jButton1.setVisible(false);
+                this.jButton3.setVisible(true);
+                this.jButton4.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

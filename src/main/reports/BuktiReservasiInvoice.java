@@ -204,16 +204,12 @@ public class BuktiReservasiInvoice {
             // Display the report in a viewer
             JasperViewer.viewReport(jasperPrint, false);
             JasperViewer.setDefaultLookAndFeelDecorated(true);
-            
+            System.out.println("Print ==> Invoice");
         }catch(Exception err){
             System.out.println(err);
         }
     }
     
-    public static void main(String[] args){
-        BuktiReservasiInvoice main = new BuktiReservasiInvoice();
-        System.out.print(true);
-        main.Reports();
-    }
+    
     
 }

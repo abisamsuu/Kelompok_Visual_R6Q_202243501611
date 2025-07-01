@@ -17,6 +17,7 @@ import com.ChekIn;
 import main.reports.LaporanDataKamar;
 import main.reports.LaporanKeuangan;
 import main.reports.LaporanReservasi;
+import main.reports.LaporanCheckin;
 
 public class Dashboard extends javax.swing.JFrame {
 
@@ -54,6 +55,7 @@ public class Dashboard extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        CheckinBtn = new javax.swing.JMenuItem();
 
         jMenu2.setText("File");
         jMenuBar2.add(jMenu2);
@@ -70,7 +72,6 @@ public class Dashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard Hotel");
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(0, 0));
         setResizable(false);
 
         jButton1.setText("CHECK IN");
@@ -160,6 +161,14 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         jMenu6.add(jMenuItem6);
+
+        CheckinBtn.setText("Laporan Check  In");
+        CheckinBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckinBtnActionPerformed(evt);
+            }
+        });
+        jMenu6.add(CheckinBtn);
 
         jMenuBar1.add(jMenu6);
 
@@ -254,6 +263,11 @@ public class Dashboard extends javax.swing.JFrame {
         new LaporanReservasi().Reports();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void CheckinBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckinBtnActionPerformed
+        // TODO add your handling code here:
+        new LaporanCheckin().Laporan();
+    }//GEN-LAST:event_CheckinBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -290,6 +304,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem CheckinBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

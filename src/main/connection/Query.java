@@ -64,6 +64,30 @@ public class Query {
          }
     }
     
+    public boolean DeleteDiskon(String kode){
+         try{
+            String sql = "DELETE FROM diskon WHERE kode = ?";
+            PreparedStatement state = conn.prepareStatement(sql);
+            state.setString(1,kode);
+            state.executeUpdate();
+            return true;
+         }catch(Exception er){
+             return false;
+         }
+    }
+    
+    public boolean DeleteTamu(String kode){
+         try{
+            String sql = "DELETE FROM tamu WHERE no_identitas = ?";
+            PreparedStatement state = conn.prepareStatement(sql);
+            state.setString(1,kode);
+            state.executeUpdate();
+            return true;
+         }catch(Exception er){
+             return false;
+         }
+    }
+    
     public boolean InsertDataDiskon(String kode,int diskon,int jumlah_pengguna){
         try{
             String sql = "INSERT INTO diskon (kode,discount,max) VALUES (?,?,?)";

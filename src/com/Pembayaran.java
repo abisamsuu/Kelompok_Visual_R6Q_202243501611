@@ -331,16 +331,19 @@ private Connection conn = new Connect().connect();
             Query.GetDisc getResult = main.GetKodeDiskon(diskon.getText());
             if(getResult != null){
                 hasil = new Query().InsertDataPembayaran(kode,getResult.getId(),payment);
-                if(hasil){
+                if(hasil){                   
                     JOptionPane.showMessageDialog(null, "Pembayaran Telah Berhasil Dilakukan");
-                    this.dispose();
-                    new BuktiReservasiInvoice().Reports();
+                    this.dispose();   
+                    BuktiReservasiInvoice report= new BuktiReservasiInvoice();
+                    report.Reports();
                 }
             }
         }else{
             hasil =  new Query().InsertDataPembayaran(kode,0,payment);
-            if(hasil){
+            if(hasil){                
                JOptionPane.showMessageDialog(null, "Pembayaran Telah Berhasil Dilakukan");
+               BuktiReservasiInvoice report= new BuktiReservasiInvoice();
+               report.Reports();
             }
         }
         

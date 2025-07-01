@@ -130,6 +130,11 @@ public class DataDiskon extends javax.swing.JFrame {
 
         jButton3.setText("Delete");
         jButton3.setVisible(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Update");
         jButton4.setVisible(false);
@@ -294,6 +299,26 @@ public class DataDiskon extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_searchQKeyPressed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        //delete
+        String kodes = kodeDiskon.getText();
+        Query main = new Query();
+        boolean result = main.DeleteDiskon(kodes);
+        if(result){
+            JOptionPane.showMessageDialog(null, "Data Berhasil Di Hapus");
+            DataTable();            
+        }else{
+            JOptionPane.showMessageDialog(null, "Data Gagal Di Hapus");
+        }
+        kodeDiskon.setText("");
+        diskon.setText("");
+        maxDiskon.setText("");
+        this.jButton3.setVisible(false);
+            this.jButton4.setVisible(false);
+            this.jButton1.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
